@@ -87,13 +87,13 @@
     <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300 ease-in-out">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="{{ route('home') }}" class="text-2xl font-bold flex items-center">
+                <a href="     " class="text-2xl font-bold flex items-center">
                     <img src="{{ asset('Imagenes/logo-full.png') }}" alt="logo" class="h-12 w-auto mr-2">
                     <span class="hidden md:inline text-libertadores-green">Sige</span>
                 </a>
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-libertadores-green transition duration-300">Inicio</a>
-                    <a href="{{ route('events.index') }}" class="text-gray-700 hover:text-libertadores-green transition duration-300">Eventos</a>
+                    <a href="           " class="text-gray-700 hover:text-libertadores-green transition duration-300">Inicio</a>
+                    <a href="        " class="text-gray-700 hover:text-libertadores-green transition duration-300">Eventos</a>
                     <a href="https://educacion-continua.libertadores.edu.co/" class="text-gray-700 hover:text-libertadores-green transition duration-300">Formación Continua</a>
                     <a href="https://www.ulibertadores.edu.co/admision/becas-y-beneficios/" class="text-gray-700 hover:text-libertadores-green transition duration-300">Beneficios</a>
                     <div class="relative group">
@@ -102,11 +102,11 @@
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="{{ route('egresados.login') }}" 
+                            <a href="                " 
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-libertadores-green hover:text-white transition-colors duration-300">
                                 <i class="fas fa-user-graduate mr-2"></i>Egresado
                             </a>
-                            <a href="{{ route('jefe_egresados.login') }}" 
+                            <a href="               " 
                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-libertadores-green hover:text-white transition-colors duration-300">
                                 <i class="fas fa-user-tie mr-2"></i>Jefe de Egresados
                             </a>
@@ -120,15 +120,15 @@
         </div>
         <!-- Menú móvil -->
         <div class="md:hidden hidden bg-white" id="mobile-menu">
-            <a href="{{ route('home') }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Inicio</a>
-            <a href="{{ route('egresados.index') }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Directorio</a>
-            <a href="{{ route('events.index') }}" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Eventos</a>
+            <a href="           " class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Inicio</a>
+            <a href="               " class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Directorio</a>
+            <a href="                                               " class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Eventos</a>
             <a href="https://educacion-continua.libertadores.edu.co/" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Formación Continua</a>
             <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Beneficios</a>
             <div class="py-2 px-4">
                 <span class="block text-sm font-medium text-gray-900">Iniciar Sesión</span>
-                <a href="{{ route('egresados.login') }}" class="block py-2 text-sm text-gray-700 hover:text-libertadores-green">Egresado</a>
-                <a href="{{ route('jefe_egresados.login') }}" class="block py-2 text-sm text-gray-700 hover:text-libertadores-green">Jefe de Egresados</a>
+                <a href="               " class="block py-2 text-sm text-gray-700 hover:text-libertadores-green">Egresado</a>
+                <a href="                   " class="block py-2 text-sm text-gray-700 hover:text-libertadores-green">Jefe de Egresados</a>
             </div>
         </div>
     </nav>
@@ -144,7 +144,7 @@
                             <h1 class="text-white text-4xl md:text-6xl font-bold mb-4">Bienvenidos Egresados</h1>
                             <p class="text-green-300 text-xl md:text-2xl mb-8">Conectando el éxito de nuestros graduados</p>
                             <div class="flex flex-wrap justify-center gap-4">
-                                <a href="{{ route('egresados.login') }}" class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 transform hover:scale-105">Portal de Egresados</a>
+                                <a href="           " class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 transform hover:scale-105">Portal de Egresados</a>
                                 <a href="https://www.ulibertadores.edu.co/programas/" class="bg-white text-libertadores-green px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-white transition duration-300 transform hover:scale-105">Programas Académicos</a>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                 </div>
             </div>
             <div class="text-center mt-8">
-                <a href="{{ route('job_offers.index') }}" class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 inline-block">Ver todas las ofertas</a>
+                <a href="               " class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 inline-block">Ver todas las ofertas</a>
             </div>
         </div>
 
@@ -226,7 +226,7 @@
                 </div>
             </div>
             <div class="text-center mt-8">
-                <a href="{{ route('events.index') }}" class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 inline-block">Ver todos los eventos</a>
+                <a href="                   " class="bg-libertadores-green text-white px-6 py-3 rounded-full hover:bg-libertadores-gold hover:text-libertadores-green transition duration-300 inline-block">Ver todos los eventos</a>
             </div>
         </div>
 
@@ -330,13 +330,13 @@
                 </div>
                 <div>
                     <h5 class="text-2xl font-bold mb-4">Enlaces Rápidos</h5>
-                    <a href="{{ route('egresados.index') }}" class="block mb-2 hover:text-libertadores-gold transition duration-300">Directorio de Egresados</a>
-                    <a href="{{ route('job_offers.index') }}" class="block mb-2 hover:text-libertadores-gold transition duration-300">Ofertas Laborales</a>
-                    <a href="{{ route('events.index') }}" class="block mb-2 hover:text-libertadores-gold transition duration-300">Eventos</a>
+                    <a href="            " class="block mb-2 hover:text-libertadores-gold transition duration-300">Directorio de Egresados</a>
+                    <a href="                   " class="block mb-2 hover:text-libertadores-gold transition duration-300">Ofertas Laborales</a>
+                    <a href="                     " class="block mb-2 hover:text-libertadores-gold transition duration-300">Eventos</a>
                     @auth
-                        <a href="{{ route('egresados.edit', ['egresado' => auth()->id()]) }}" class="block hover:text-libertadores-gold transition duration-300">Actualiza tus Datos</a>
+                        <a href="                }" class="block hover:text-libertadores-gold transition duration-300">Actualiza tus Datos</a>
                     @else
-                        <a href="{{ route('egresados.login') }}" class="block hover:text-libertadores-gold transition duration-300">Iniciar Sesión para Actualizar Datos</a>
+                        <a href="                   " class="block hover:text-libertadores-gold transition duration-300">Iniciar Sesión para Actualizar Datos</a>
                     @endauth
                 </div>
                 <div>

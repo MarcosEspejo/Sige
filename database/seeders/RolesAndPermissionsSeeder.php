@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
  use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use app\Models\User;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -29,7 +30,22 @@ public function run(): void
     $jefe->givePermissionTo(['ver-eventos', 'crear-eventos', 'editar-eventos', 'ver-reportes']);
 
     $admin = Role::create(['name' => 'admin']);
-    $admin->givePermissionTo(Permission::all()); // todos los permisos
+    $admin->givePermissionTo(Permission::all());// todos los permisos
+
+    //usuarios de prueba
+
+    $user1 = User::firstorcreate(
+    ['email' => 'marcos@gmail.com'],
+    ['name' => 'marcos egresado', 'password' => bcrypt('12345678')]
+    );
+
+    $user1 -> assingnRole ($egresado);
+
+    $user2 = User::firstOrCreate(
+            ['email' => 'carlos@mail.com'],
+            ['name' => 'Carlos Jefe', 'password' => bcrypt('12345678')]
+        );
+        $user2->assignRole($jefe);
 }
 
 }
