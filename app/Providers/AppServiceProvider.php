@@ -21,4 +21,17 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    public static function redirectToByRole($user)
+{
+    if ($user->hasRole('admin')) {
+        return '/admin/index';
+    }
+    if ($user->hasRole('jefe')) {
+        return '/jefeEgresados/index';
+    }
+    return '/egresados/index';
+}
+
+    
 }

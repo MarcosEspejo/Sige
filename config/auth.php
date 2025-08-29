@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'jefe_egresado' => [
+        'driver' => 'session',
+        'provider' => 'jefe_egresados',
+    ],
     ],
 
     /*
@@ -64,6 +69,11 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+
+        'jefe_egresados' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\JefeEgresado::class,
+    ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -111,5 +121,7 @@ return [
     */
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
+
+
 
 ];

@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
     <script>
         tailwind.config = {
             theme: {
@@ -82,6 +84,17 @@
     </style>
 </head>
 
+
+
+
+
+
+
+
+
+
+
+
 <body class="bg-gray-100 text-gray-800 transition-colors duration-300">
     <!-- Navbar mejorado -->
     <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300 ease-in-out">
@@ -98,18 +111,10 @@
                     <a href="https://www.ulibertadores.edu.co/admision/becas-y-beneficios/" class="text-gray-700 hover:text-libertadores-green transition duration-300">Beneficios</a>
                     <div class="relative group">
                         <button class="text-gray-700 hover:text-libertadores-green transition duration-300 flex items-center focus:outline-none" id="login-button">
-                            <span>Iniciar Sesión</span>
+                            <a href="{{ route ('login')}}">Iniciar Sesión</a>
                             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <a href="                " 
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-libertadores-green hover:text-white transition-colors duration-300">
-                                <i class="fas fa-user-graduate mr-2"></i>Egresado
-                            </a>
-                            <a href="               " 
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-libertadores-green hover:text-white transition-colors duration-300">
-                                <i class="fas fa-user-tie mr-2"></i>Jefe de Egresados
-                            </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -334,7 +339,7 @@
                     <a href="                   " class="block mb-2 hover:text-libertadores-gold transition duration-300">Ofertas Laborales</a>
                     <a href="                     " class="block mb-2 hover:text-libertadores-gold transition duration-300">Eventos</a>
                     @auth
-                        <a href="                }" class="block hover:text-libertadores-gold transition duration-300">Actualiza tus Datos</a>
+                        <a href="                " class="block hover:text-libertadores-gold transition duration-300">Actualiza tus Datos</a>
                     @else
                         <a href="                   " class="block hover:text-libertadores-gold transition duration-300">Iniciar Sesión para Actualizar Datos</a>
                     @endauth

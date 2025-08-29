@@ -3,18 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create()
     {
         return view('auth.login');
     }
@@ -24,45 +21,35 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-    if (Auth::attempt($credentials, $request->boolean('remember'))) {
-        $request->session()->regenerate();
-        $user = Auth::user();
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
+            
+            // Obtener el usuario autenticado
+            $user = Auth::user();
+            
+            // Redireccionar según el rol
+            if ($user->hasRole('jefeegresado')) {
+                return redirect()->route('jefe_egresados.index');
+            }
+            
+            if ($user->hasRole('egresado')) {
+                return redirect()->route('egresados.index'); 
+            }
+            
+            if ($user->hasRole('admin')) {
+                return redirect()->route('admin.dashboard');
+            }
 
-        // Redirección según el rol
-        if ($user->hasRole('egresado')) {
-            return redirect()->route('egresados.dashboard');
+            return redirect()->intended('/');
         }
 
-        if ($user->hasRole('jefe')) {
-            return redirect()->route('jefe.dashboard');
-        }
-
-        if ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard');
-        }
-
-        // fallback por si acaso
-        return redirect()->route('dashboard');
-    }
-
-    return back()->withErrors([
-        'email' => 'Las credenciales no coinciden con nuestros registros.',
-    ]);
-    }
-
-    /**
-     * Destroy an authenticated session.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
+        return back()->withErrors([
+            'email' => 'Las credenciales proporcionadas no son correctas.',
+        ])->onlyInput('email');
     }
 }

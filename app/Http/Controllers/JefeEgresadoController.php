@@ -25,8 +25,8 @@ class JefeEgresadoController extends Controller
 
     public function index()
     {
-        $egresados = Egresado::paginate(10); // O el método que uses para obtener los datos
-        return view('JefeEgresados.index', compact('egresados'));
+       
+        return view('JefeEgresados.index');
     }
 
     public function create()

@@ -44,11 +44,7 @@ class EgresadoController extends Controller
 
     public function index()
     {
-        $egresado = Auth::user();
-        $eventos = Evento::latest()->take(3)->get();
-        $noticias = Noticia::latest()->take(3)->get();
-
-        return view('egresados.index', compact('egresado', 'eventos', 'noticias'));
+        return view ('egresados.index');
     }
 
     public function show(Egresado $egresado)
