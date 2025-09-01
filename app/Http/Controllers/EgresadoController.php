@@ -44,12 +44,16 @@ class EgresadoController extends Controller
 
     public function index()
     {
-        return view ('egresados.index');
+        $egresado = Auth::user();
+
+
+        return view('egresados.index', compact('egresado'));
     }
 
-    public function show(Egresado $egresado)
+    public function show()
     {
-        return view('Egresados.show', compact('egresado'));
+        $egresado = Egresado::findOrFail($id);
+    return view('egresados.show', compact('egresado'));
     }
 
     public function edit(Egresado $egresado)
@@ -92,8 +96,7 @@ class EgresadoController extends Controller
     public function dashboard()
     {
         $egresado = Auth::user();
-        $eventos = Evento::latest()->take(3)->get();
-        $noticias = Noticia::latest()->take(3)->get();
+      
 
         return view('egresados.principalEgresados', compact('egresado', 'eventos', 'noticias'));
     }
@@ -201,8 +204,6 @@ class EgresadoController extends Controller
 
     public function notifications()
     {
-        $notifications = auth()->user()->notifications()->orderBy('created_at', 'desc')->get();
-        return view('egresados.notifications', compact('notifications'));
     }
 
     public function markNotificationAsRead(Notification $notification)

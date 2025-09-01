@@ -48,4 +48,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // En App\Models\User.php
+public function assignRole(...$roles)
+{
+    parent::assignRole(...$roles);
+
+    // Guardar el rol principal en la columna "rol"
+    $this->update(['rol' => $this->roles->first()->name]);
+
+    return $this;
+}
+
 }

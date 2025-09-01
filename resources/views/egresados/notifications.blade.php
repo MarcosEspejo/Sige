@@ -14,7 +14,7 @@
         <h1 class="text-3xl font-bold text-libertadores-green mb-6 flex items-center">
             <i class="fas fa-bell mr-3"></i>
             Mis Notificaciones
-            @if($notifications->where('read', false)->count() > 0)
+            @if($notifications->where('read', false)->count() )
                 <span class="ml-3 bg-red-500 text-white text-sm px-2 py-1 rounded-full">
                     {{ $notifications->where('read', false)->count() }} nueva(s)
                 </span>
@@ -27,7 +27,7 @@
             <i class="fas fa-arrow-right ml-2"></i>
         </a>
 
-        @if($notifications->count() > 0)
+        @if($notifications->count() )
             <div class="space-y-4">
                 @foreach($notifications as $notification)
                     <div class="bg-gray-50 p-4 rounded-lg border {{ $notification->read ? 'border-gray-200' : 'border-libertadores-green' }} hover:shadow-md transition-shadow duration-300">

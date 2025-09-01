@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
+     * Mostrar vista de login
      */
     public function create()
     {
@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Procesar login
      */
     public function store(Request $request)
     {
@@ -29,27 +29,38 @@ class AuthenticatedSessionController extends Controller
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
             
-            // Obtener el usuario autenticado
             $user = Auth::user();
-            
-            // Redireccionar según el rol
+
+            // Redirección según el rol
             if ($user->hasRole('jefeegresado')) {
-                return redirect()->route('jefe_egresados.index');
+                return redirect()->route('jefeEgresados.index')
+                    ->with('success', '¡Bienvenido Jefe de Egresados!');
             }
             
             if ($user->hasRole('egresado')) {
-                return redirect()->route('egresados.index'); 
-            }
-            
-            if ($user->hasRole('admin')) {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('egresados.index')
+                    ->with('success', '¡Bienvenido Egresado!');
             }
 
-            return redirect()->intended('/');
+            // Si no tiene rol
+            return redirect()->route('principal')
+                ->with('error', 'No tienes un rol asignado.');
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales proporcionadas no son correctas.',
         ])->onlyInput('email');
+    }
+
+    /**
+     * Cerrar sesión
+     */
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('principal');
     }
 }

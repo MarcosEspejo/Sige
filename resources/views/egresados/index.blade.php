@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
+
 @section('title', 'Portal de Egresados - Universidad Los Libertadores')
 
 @section('content')
@@ -34,7 +36,7 @@
         <!-- Enlaces de Navegación -->
         <nav class="p-4">
             <x-sidebar-link 
-                href="{{ route('egresados.show', auth()->id()) }}" 
+                href="#" 
                 icon="user-circle" 
                 title="Ver mi perfil de egresado"
                 class="mb-2">
@@ -42,7 +44,7 @@
             </x-sidebar-link>
 
             <x-sidebar-link 
-                href="{{ route('egresados.notifications.index') }}" 
+                href="#" 
                 icon="bell" 
                 badge="{{ auth()->user()->notifications()->where('read', false)->count() }}"
                 title="Ver notificaciones"

@@ -1,3 +1,11 @@
+@props([
+    'href' => '#',
+    'target' => '_self',
+    'icon' => 'circle',
+    'badge' => null,
+    'title' => null
+])
+
 <li class="mb-2">
     <a href="{{ $href }}" 
        target="{{ $target }}"

@@ -110,12 +110,13 @@
                     <a href="https://educacion-continua.libertadores.edu.co/" class="text-gray-700 hover:text-libertadores-green transition duration-300">Formación Continua</a>
                     <a href="https://www.ulibertadores.edu.co/admision/becas-y-beneficios/" class="text-gray-700 hover:text-libertadores-green transition duration-300">Beneficios</a>
                     <div class="relative group">
-                        <button class="text-gray-700 hover:text-libertadores-green transition duration-300 flex items-center focus:outline-none" id="login-button">
-                            <a href="{{ route ('login')}}">Iniciar Sesión</a>
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
+                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-libertadores-green transition duration-300 flex items-center focus:outline-none">
+                            <span>Iniciar Sesión</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
                         
-                        </div>
                     </div>
                 </div>
                 <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
@@ -137,6 +138,8 @@
             </div>
         </div>
     </nav>
+
+    
 
     <!-- Banner con slider -->
     <div class="relative h-screen overflow-hidden fade-in">

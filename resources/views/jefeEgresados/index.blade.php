@@ -59,7 +59,7 @@
                     </div>
                     <div class="ml-4">
                         <h3 class="text-sm font-medium text-gray-500">Total Egresados</h3>
-                        <p class="text-3xl font-bold text-gray-800">{{ $egresados->total() }}</p>
+                        <p class="text-3xl font-bold text-gray-800"></p>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="ml-4">
                         <h3 class="text-sm font-medium text-gray-500">Programas</h3>
-                        <p class="text-3xl font-bold text-gray-800">{{ $egresados->unique('programa')->count() }}</p>
+                        <p class="text-3xl font-bold text-gray-800"></p>
                     </div>
                 </div>
             </div>
@@ -108,14 +108,14 @@
             <i class="fas fa-file-import mr-3 text-libertadores-green"></i>
             Importar Egresados
         </h2>
-        <a href="{{ route('jefe_egresados.descargar.plantilla') }}" 
+        <a href="#" 
            class="text-sm text-libertadores-green hover:text-libertadores-gold flex items-center">
             <i class="fas fa-download mr-2"></i>
             Descargar Plantilla
         </a>
     </div>
 
-    <form id="importForm" action="{{ route('jefe_egresados.import.excel') }}" method="POST" enctype="multipart/form-data">
+    <form id="importForm" action="#" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="flex flex-col md:flex-row items-center gap-4">
             <div class="flex-1 w-full">
@@ -179,7 +179,7 @@
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
-                <a href="{{ route('jefe_egresados.create') }}" 
+                <a href="#" 
                    class="bg-libertadores-green hover:bg-libertadores-gold text-white font-bold py-2 px-4 rounded-lg transition duration-300 flex items-center">
                     <i class="fas fa-user-plus mr-2"></i>
                     Nuevo
@@ -261,22 +261,22 @@
                 Acciones Rápidas
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="{{ route('jefe_egresados.dashboard') }}" 
+                <a href="#" 
                    class="flex items-center justify-center bg-libertadores-green hover:bg-libertadores-gold text-white font-bold py-3 px-4 rounded-lg transition duration-300 group">
                     <i class="fas fa-chart-line mr-2 group-hover:scale-110 transition-transform duration-300"></i>
                     Dashboard
                 </a>
-                <a href="{{ route('jefe_egresados.busquedaAvanzada') }}" 
+                <a href="#" 
                    class="flex items-center justify-center bg-libertadores-green hover:bg-libertadores-gold text-white font-bold py-3 px-4 rounded-lg transition duration-300 group">
                     <i class="fas fa-search mr-2 group-hover:scale-110 transition-transform duration-300"></i>
                     Búsqueda Avanzada
                 </a>
-                <a href="{{ route('jefe_egresados.alertas.index') }}" 
+                <a href="#" 
                    class="flex items-center justify-center bg-libertadores-green hover:bg-libertadores-gold text-white font-bold py-3 px-4 rounded-lg transition duration-300 group">
                     <i class="fas fa-bell mr-2 group-hover:scale-110 transition-transform duration-300"></i>
                     Alertas
                 </a>
-                <form action="{{ route('jefe_egresados.logout') }}" method="POST" class="w-full">
+                <form action="#" method="POST" class="w-full">
                     @csrf
                     <button type="submit" 
                             class="w-full flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 group">
@@ -313,7 +313,7 @@ function handleExcelUpload(input) {
             showConfirmButton: false
         });
 
-        fetch('{{ route("jefe_egresados.import.excel") }}', {
+        fetch('#', {
             method: 'POST',
             body: formData
         })

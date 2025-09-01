@@ -1,62 +1,54 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
-use app\Http\Controllers\EgresadoController;
-use app\Http\Controllers\JefeEgresadoController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use Illuminate\Auth\Events\Login;
+use App\Http\Controllers\EgresadoController;
+use App\Http\Controllers\JefeEgresadoController;
 
+// Página principal pública
 Route::get('/', function () {
     return view('principal');
-});
-Route::get('login');
-// Rutas de autenticación
+})->name('principal');
+
+// Rutas de login
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->name('login');
-Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->name('login.store');
 
-// Rutas protegidas para jefe de egresados
-Route::middleware(['auth', 'role:jefeegresado'])->group(function () {
-    Route::get('/jefe-egresados', [JefeEgresadoController::class, 'index'])
-        ->name('jefe_egresados.index');
+// Rutas protegidas (solo si está autenticado)
+Route::middleware('auth')->group(function () {
 
-    // Importación y descarga
-    Route::get('/jefe-egresados/plantilla', [JefeEgresadoController::class, 'descargarPlantilla'])
-        ->name('jefe_egresados.descargar.plantilla');
+    // -------------------------
+    // Egresados
+    // -------------------------
+    Route::prefix('egresados')->name('egresados.')->group(function () {
+        Route::get('/', [EgresadoController::class, 'index'])->name('index');
 
-    Route::post('/jefe-egresados/import', [JefeEgresadoController::class, 'importExcel'])
-        ->name('jefe_egresados.import.excel');
+        Route::middleware('role:egresado')->group(function () {
+            Route::get('/{id}', [EgresadoController::class, 'show'])->name('show');
+            Route::get('/notifications', [EgresadoController::class, 'notifications'])->name('notifications.index');
+        });
 
-    // CRUD egresados
-    Route::get('/jefe-egresados/create', [EgresadoController::class, 'create'])
-        ->name('jefe_egresados.create');
+        // Extra (si realmente necesitas esta duplicada)
+        Route::get('/show', [EgresadoController::class, 'show'])->name('show.alt');
+    });
 
-    Route::get('/jefe-egresados/{egresado}', [EgresadoController::class, 'show'])
-        ->name('jefe_egresados.egresados.show');
+    // -------------------------
+    // Jefe de Egresados
+    // -------------------------
+    Route::prefix('jefe-egresados')->name('jefeEgresados.')->group(function () {
+        Route::get('/', [JefeEgresadoController::class, 'index'])->name('index');
+    });
 
-    Route::get('/jefe-egresados/{egresado}/edit', [EgresadoController::class, 'edit'])
-        ->name('jefe_egresados.egresados.edit');
+    // -------------------------
+    // Utilidades
+    // -------------------------
+    Route::get('/proximamente', function () {
+        return view('proximamente'); // temporal
+    })->name('proximamente');
 
-    // Acciones rápidas
-    Route::get('/jefe-egresados/dashboard', [JefeEgresadoController::class, 'dashboard'])
-        ->name('jefe_egresados.dashboard');
-
-    Route::get('/jefe-egresados/busqueda', [JefeEgresadoController::class, 'busquedaAvanzada'])
-        ->name('jefe_egresados.busquedaAvanzada');
-
-    Route::get('/jefe-egresados/alertas', [JefeEgresadoController::class, 'alertas'])
-        ->name('jefe_egresados.alertas.index');
-
-    // Logout (puedes usar el logout de Laravel Breeze directamente)
-    Route::post('/jefe-egresados/logout', [JefeEgresadoController::class, 'logout'])
-        ->name('jefe_egresados.logout');
+    // Logout
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
 });
-
-// Rutas públicas
-Route::get('/', function () {
-    return view('principal');
-});
-
-require __DIR__.'/auth.php';

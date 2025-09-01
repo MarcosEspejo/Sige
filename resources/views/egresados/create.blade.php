@@ -93,8 +93,7 @@
 
 @section('scripts')
 <script>
-    // Aquí puedes agregar JavaScript para mejorar la interactividad del formulario
-    // Por ejemplo, una vista previa de la imagen subida
+    
     document.getElementById('file-upload').addEventListener('change', function(e) {
         var file = e.target.files[0];
         var reader = new FileReader();

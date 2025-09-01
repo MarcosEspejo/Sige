@@ -30,11 +30,11 @@
                     Notificaciones
                 </x-sidebar-link>
 
-                <x-sidebar-link href="{{ route('events.index') }}" icon="calendar-alt">
+                <x-sidebar-link href="#" icon="calendar-alt">
                     Eventos
                 </x-sidebar-link>
 
-                <x-sidebar-link href="{{ route('noticias.index') }}" icon="newspaper">
+                <x-sidebar-link href="#" icon="newspaper">
                     Noticias
                 </x-sidebar-link>
 
@@ -43,7 +43,7 @@
                 </x-sidebar-link>
 
                 <li class="px-4">
-                    <form action="{{ route('egresados.logout') }}" method="POST" id="logout-form">
+                    <form action="#" method="POST" id="logout-form">
                         @csrf
                         <button type="submit" 
                                 class="w-full flex items-center px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-300">
