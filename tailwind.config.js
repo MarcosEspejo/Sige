@@ -14,6 +14,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'libertadores-green': '#006341',
+                'libertadores-gold': '#FFD700',
+            },
         },
     },
 

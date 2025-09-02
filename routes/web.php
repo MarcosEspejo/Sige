@@ -5,6 +5,11 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\JefeEgresadoController;
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminEventoController;
+use App\Http\Controllers\AdminNoticiaController;
+
 // Página principal pública
 Route::get('/', function () {
     return view('principal');
@@ -40,6 +45,25 @@ Route::middleware('auth')->group(function () {
     Route::prefix('jefe-egresados')->name('jefeEgresados.')->group(function () {
         Route::get('/', [JefeEgresadoController::class, 'index'])->name('index');
     });
+
+    //--------------
+    //adminitrador
+    //---------------
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('admin.index');
+});
+
+
+
+
+
+
+
+
 
     // -------------------------
     // Utilidades

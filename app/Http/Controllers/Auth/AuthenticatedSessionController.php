@@ -42,6 +42,11 @@ class AuthenticatedSessionController extends Controller
                     ->with('success', '¡Bienvenido Egresado!');
             }
 
+            if ($user->hasRole('admin')) {
+            return redirect()->route('admin.index')
+                ->with('success', '¡Bienvenido Administrador!');
+            }
+
             // Si no tiene rol
             return redirect()->route('principal')
                 ->with('error', 'No tienes un rol asignado.');
@@ -61,6 +66,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect()->route('principal');
+        return redirect()->route('login');
     }
 }
